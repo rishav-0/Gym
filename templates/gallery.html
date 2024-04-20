@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+Gallery
+{% endblock title %}
+{% block body %}
+
+<div class="container mt-2" id="scroll">
+    <Center>
+        <h1>Gallery</h1>
+    </Center>
+    <div class="row">
+
+
+        {% for post in posts %}
+        <div class="col-md-4">
+
+
+            <div class="card">
+                <img src="{{post.img.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">Uploaded On : {{post.timeStamp}} </p>
+                </div>
+            </div>
+
+
+        </div>
+        {% endfor %}
+        <br>
+        <br>
+
+
+    </div>
+</div>
+
+<script>
+    // Automatically scroll to a specific div with an 'id' when the page loads
+    window.onload = function () {
+        var elementToScrollTo = document.getElementById("scroll"); // Replace with the actual 'id' you want to scroll to
+        elementToScrollTo.scrollIntoView({ behavior: "smooth" });
+    };
+</script>
+
+
+
+{% endblock body %}
